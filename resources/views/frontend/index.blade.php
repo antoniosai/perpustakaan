@@ -17,7 +17,7 @@
                     <h2>Selamat Datang di {{ $info->name }}</h2>
                     <h2><small>{{ $info->name }}</small></h2>
                     <hr>
-                    <form class="form-inline">
+                    <form action="{!! route('search') !!}" method="GET" class="form-inline">
                         <div class="form-group">
                             <input type="text" class="form-control" id="query" name="query" placeholder="Kata kunci pencarian" style="width: 400px">
                         </div>

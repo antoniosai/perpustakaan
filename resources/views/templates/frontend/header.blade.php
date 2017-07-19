@@ -1,5 +1,5 @@
 <!-- menubar area start -->
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -17,11 +17,16 @@
             <li><a href="{{ route('home.user') }}">Daftar Perujuk</a></li>
             <li><a href="#">Informasi</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
-            <li><a href="../navbar-static-top/">Static top</a></li>
-            <li><a href="../navbar-fixed-top/">Fixed top</a></li>
-        </ul>
+        <div class="col-sm-3 col-md-3 pull-right">
+            <form action="{!! route('search') !!}" class="navbar-form" role="search" method="GET">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="query" id="srch-term" required>
+                    <div class="input-group-btn">
+                        <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
         </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
 </nav>

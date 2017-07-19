@@ -22,15 +22,16 @@ Perujuk
                     <div class="card">
                         <div class="row">
                             <div class="col-md-5">
-                            @if($perujuk->foto == NULL)
-                                @if($perujuk->gender == 'P')
-                                    <img src="{{ asset('images/gender/wanita.png')}}" style="height: 120px; width: 120px">
+                                @if($perujuk->foto == NULL)
+                                    @if($perujuk->gender == 'P')
+                                        <?php $path = 'images/gender/wanita.png'; ?>
+                                    @else
+                                        <?php $path = 'images/gender/laki.png'; ?>                       
+                                    @endif
                                 @else
-                                    <img src="{{ asset('images/gender/laki.png')}}" style="height: 120px; width: 120px">                        
+                                    <?php $path = 'uploads/images/'.$perujuk->foto; ?>
                                 @endif
-                            @else
-                                <img src="{{ asset('uploads/images/'.$perujuk->foto)}}" style="height: 120px; width: 120px">                                            
-                            @endif
+                                <img src="{{ asset($path) }}" style="height: 120px; width: 120px">                                            
                             </div>
                             <div class="col-md-6">
                                 <h4><a href="{{ route('home.user.detail', $perujuk->id) }}"><strong>{{ $perujuk->name }}</strong></a></h4> 

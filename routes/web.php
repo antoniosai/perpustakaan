@@ -30,6 +30,8 @@ Route::group(['prefix' => 'perujuk'], function(){
     Route::get('/profile/{id}', 'FrontController@detailUser')->name('home.user.detail');
 });
 
+Route::get('search', 'FrontController@search')->name('search');
+
 
 //Backend Area
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){

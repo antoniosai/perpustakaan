@@ -12,7 +12,7 @@ Detail Buku {{ $buku->title }}
             <div class="row">
                 <div class="col-sm-6 col-md-3">
                     <figure>
-                        <img src="http://it-ebooks.info/images/ebooks/6/nginx.jpg" style="height: 220px; width: 189px">
+                        <img src="http://www.zamzar.com/images/filetypes/pdf.png" style="height: 180px; width: 180px">
                     </figure>
                     <br>
                     <?php 
@@ -25,10 +25,6 @@ Detail Buku {{ $buku->title }}
                         <tr>
                             <td style="width: 150px">Tanggal Upload</td>
                             <td>{{ $buku->created_at->format('d M Y') }}</td>
-                        </tr>
-                        <tr>
-                            <td>Halaman</td>
-                            <td>171</td>
                         </tr>
                         <tr>
                             <td>Ukuran</td>
@@ -45,7 +41,7 @@ Detail Buku {{ $buku->title }}
                     </table>
                     <hr>
                     <h3>Deskripsi</h3>
-                    <p>{{ $buku->description }}</p>
+                    <p>{!! $buku->description !!}</p>
                 </div>
             </div>
         </div>

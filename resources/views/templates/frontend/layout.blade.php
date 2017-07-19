@@ -17,12 +17,16 @@
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/style.js') }}"></script>
     @yield('custom_styles')
-
+    <style>
+    .stuck {
+    overflow-y: auto;
+}
+    </style>
 </head>
 <body>
     @include('templates.frontend.header')
     
-    @yield('content')
+    <div style="min-height:60%; max-height:100%">@yield('content')</div>
 
     @include('templates.frontend.footer')
 

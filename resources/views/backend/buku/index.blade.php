@@ -15,7 +15,6 @@ Managemen Buku
             <th></th>
             <th>Judul Buku</th>
             <th>Perujuk</th>
-            <td>Tipe</td>
             <th>Tanggal Upload</th>
             <th>Aksi</th>
         </tr>
@@ -27,13 +26,6 @@ Managemen Buku
             <td><center>{!! $no++ !!}</center></td>
             <td><a href="#">{!! $listBuku->title !!}</a></td>
             <td>{{ $listBuku->user->name }}</td>
-            <td>
-                @if($listBuku->type == 'download')
-                    Direct Download
-                @else
-                    External Link
-                @endif
-            </td>
             <td>{!! $listBuku->created_at->format('d M Y') !!}</td>
             <td>
                 <a href="{{ route('admin.buku.edit.get', $listBuku->id) }}" class="btn btn-xs btn-warning"><i class="fa fa-lg fa-pencil"></i> Edit</a>

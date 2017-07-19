@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Buku;
 use App\User;
+use App\Information;
 
 class FrontController extends Controller
 {
@@ -17,7 +18,9 @@ class FrontController extends Controller
     //Area Buku
     public function showAllBuku()
     {
-        $buku = Buku::all();
+
+        // return 'woke';
+        $buku = Buku::paginate(6);
 
         return view('frontend.buku.index', [
             'buku' => $buku
@@ -51,6 +54,24 @@ class FrontController extends Controller
         return view('frontend.perujuk.detail', [
             'user' => $user,
             'buku' => $buku
+        ]);
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $buku = Buku::where('title', 'LIKE', '%'.$query.'%')
+                ->orWhere('description', 'LIKE', '%'.$query.'%')->get();
+        $user = User::where('name', 'LIKE', '%'.$query.'%')->get();
+        $informations = Information::where('title', 'LIKE', '%'.$query.'%')
+                            ->orWhere('content', 'LIKE', '%'.$query.'%')->get();
+
+        return view('frontend.search', [
+            'buku' => $buku,
+            'user' => $user,
+            'informations' => $informations,
+            'query' => $query
         ]);
     }
 }

@@ -10,7 +10,7 @@ use Spatie\PdfToImage\Pdf;
 
 class BukuController extends Controller
 {
-    public function index($sessionMessage = null, $sessionLevel = null)
+    public function index()
     {
         $buku = Buku::all();
 
@@ -55,19 +55,19 @@ public function postAdd(Request $request)
             
             $file = $request->file('file');
 
-            var_dump($file);
-            $file = 'C:\Users\Antonio Saiful Islam\Downloads\Documents\Doc1.pdf';
+//             var_dump($file);
+//             $file = 'C:\Users\Antonio Saiful Islam\Downloads\Documents\Doc1.pdf';
 
-            $pdf = new \Imagick($file.'[0]');
+//             $pdf = new \Imagick($file.'[0]');
 
 
             
-$pdf->setImageFormat('jpg');
-header('Content-Type: image/jpeg');
+// $pdf->setImageFormat('jpg');
+// header('Content-Type: image/jpeg');
 
 
             // return $pdf->getNumberOfPages();
-            return $buku->pages = $pdf->imagick->getNumberImages();
+            // return $buku->pages = $pdf->imagick->getNumberImages();
             
             $buku->url = $file->getClientOriginalName();
             $buku->filesize = $file->getSize();

@@ -8,28 +8,25 @@ Daftar Buku
 <div class="container">
 	<div class="row">
 		<h2>Daftar Buku</h2>
-        <div class="col-lg-9">
-            <input type="search" class="form-control" id="input-search" placeholder="Pencarian Cepat" >
-        </div>  
-        <br><br>
+        <hr>
         <br>
         <div class="searchable-container">
             @forelse($buku as $listBuku)
-            <div class="items col-xs-9 col-sm-9 col-md-9 col-lg-9 clearfix">
+            <div class="items col-md-6 clearfix">
                <div class="info-block block-info clearfix">
                     <div class="row">
-                        <div class="col-sm-6 col-md-3">
+                        <div class="col-sm-6 col-md-4">
                             <center>
                                 <figure>
-                                    <img src="http://it-ebooks.info/images/ebooks/6/nginx.jpg" style="height: 160px; width: 140px">
+                                    <img src="http://www.zamzar.com/images/filetypes/pdf.png" style="height: 160px; width: 160px">
                                 </figure>
                             </center>
                         </div>
-                        <div class="col-sm-6 col-md-9">
+                        <div class="col-sm-6 col-md-8">
                             <h4><a href="{{ route('home.buku.detail', $listBuku->slug) }}">{{ $listBuku->title }}</a></h4>
-                            <p>{{ $listBuku->description }}. <a href="{{ route('home.buku.detail', $listBuku->slug) }}">Selengkapnya</a></p> 
+                            <p style="margin-right: 20px">{{ $listBuku->description }}. <a href="{{ route('home.buku.detail', $listBuku->slug) }}">Selengkapnya</a></p> 
                             <section>
-                                <span class="badge badge-info"><i>Perujuk. {{ $listBuku->user->name }}</i></span>
+                                <span class="badge badge-info"><i>Perujuk. {{ $listBuku->user_id }}</i></span>
                                 <span class="badge badge-success">Uploaded on : {{ $listBuku->created_at->format('d M Y') }}</span>
                             </section>
                         </div>
@@ -42,6 +39,11 @@ Daftar Buku
                 <h4>Data Yang Anda Cari Tidak Ditemukan</h4>
             </div>
             @endforelse
+            @if(count($buku) > 0)
+                <div class="col-md-12">
+                    <center>{!! $buku->links() !!}</center>
+                </div>
+            @endif
         </div>
 	</div>
 </div>
